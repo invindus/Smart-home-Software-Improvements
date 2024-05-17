@@ -1,5 +1,7 @@
 # Tartan
 
+This repository is a template. The original repository is to be kept private by request of the instructor.
+
 ## Current testing coverage
 ### Full Report
 The full report can be found in Platform/build/jacocoHtml/index.html after running the tests
