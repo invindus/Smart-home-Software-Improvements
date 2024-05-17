@@ -1,0 +1,36 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - main
+      - system_test
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      working-directory: smart-home/Platform
+      run: |
+        docker-compose up --build -d
+        docker-compose down
+        docker-compose up --build -d
+    - name: python setup
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    - run: pip install pytest requests
+    - name: run system tests
+      working-directory: smart-home/Platform/src/test
+      run: pytest python/
+    - name: docker compose down
+      working-directory: smart-home/Platform
+      run: docker compose down
