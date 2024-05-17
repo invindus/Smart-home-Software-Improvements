@@ -1,6 +1,6 @@
 # Tartan
 
-This repository is a template. The original repository is to be kept private by request of the instructor.
+**This repository is a template. The original repository is to be kept private by request of the instructor.**
 
 ## Current testing coverage
 ### Full Report
